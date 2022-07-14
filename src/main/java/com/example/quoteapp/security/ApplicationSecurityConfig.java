@@ -13,6 +13,8 @@ public class ApplicationSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/", "index")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
