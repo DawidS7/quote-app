@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static com.example.quoteapp.security.ApplicationUserRole.*;
+
 @RequiredArgsConstructor
 @Configuration
 public class ApplicationSecurityConfig {
@@ -37,19 +39,19 @@ public class ApplicationSecurityConfig {
         UserDetails regularUser = User.builder()
                 .username("user")
                 .password(passwordEncoder.encode("password"))
-                .roles("USER")
+                .roles(USER.toString())
                 .build();
 
         UserDetails moderatorUser = User.builder()
                 .username("moderator")
                 .password(passwordEncoder.encode("moderatorpassword"))
-                .roles("MODERATOR")
+                .roles(MODERATOR.toString())
                 .build();
 
         UserDetails adminUser = User.builder()
                 .username("admin")
                 .password(passwordEncoder.encode("adminpassword"))
-                .roles("ADMIN")
+                .roles(ADMIN.toString())
                 .build();
 
 
